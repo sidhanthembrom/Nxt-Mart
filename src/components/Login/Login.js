@@ -15,9 +15,11 @@ class Login extends Component {
   }
 
   handleCheckbox = e => {
-    e.target.checked
-      ? this.setState({isVisible: true})
-      : this.setState({isVisible: false})
+    if (e.target.checked) {
+      this.setState({isVisible: true})
+    } else {
+      this.setState({isVisible: false})
+    }
   }
 
   handleLogin = async e => {

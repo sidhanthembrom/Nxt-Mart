@@ -18,14 +18,13 @@ class Card extends Component {
             handleDecrementInCart,
           } = value
 
-          const handleAddBtn = product => {
+          const handleAddBtn = () => {
             product.count = count
             addItemInCart(product)
             this.setState(prevState => ({isClicked: !prevState.isClicked}))
           }
 
-          const handleDecrement = product => {
-            const {count} = this.state
+          const handleDecrement = () => {
             if (count === 1) {
               handleDecrementInCart(product, count)
               this.setState({isClicked: false})
@@ -37,7 +36,7 @@ class Card extends Component {
             }
           }
 
-          const handleIncrement = product => {
+          const handleIncrement = () => {
             handleIncrementInCart(product)
             this.setState(prevState => ({count: prevState.count + 1}))
           }
@@ -61,23 +60,26 @@ class Card extends Component {
                   {isClicked ? (
                     <div className="quantity-modifier-btn-container">
                       <button
+                        type="button"
                         data-testid="decrement-count"
-                        onClick={() => handleDecrement(product)}
+                        onClick={() => handleDecrement()}
                       >
                         -
                       </button>
                       <span data-testid="active-count">{count}</span>
                       <button
+                        type="button"
                         data-testid="increment-count"
-                        onClick={() => handleIncrement(product)}
+                        onClick={() => handleIncrement()}
                       >
                         +
                       </button>
                     </div>
                   ) : (
                     <button
+                      type="button"
                       className="add-btn"
-                      onClick={() => handleAddBtn(product)}
+                      onClick={() => handleAddBtn()}
                     >
                       Add
                     </button>

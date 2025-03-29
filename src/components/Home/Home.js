@@ -66,11 +66,14 @@ class Home extends Component {
           return (
             <div className="main-container">
               <Header componentName="home" cartList={cartList} />
-              {isLoading ? (
+
+              {isLoading && (
                 <div className="loader-container" data-testid="loader">
                   <ThreeDots color="#4fa94d" height={50} width={50} />
                 </div>
-              ) : isFailed ? (
+              )}
+
+              {!isLoading && isFailed && (
                 <div className="failure-view-page-container">
                   <div className="failure-view-box">
                     <img
@@ -81,12 +84,18 @@ class Home extends Component {
                     />
                     <h1>Oops! Something Went Wrong</h1>
                     <p>We are having some trouble</p>
-                    <button className="retry-btn" onClick={this.handleRetryBtn}>
+                    <button
+                      type="button"
+                      className="retry-btn"
+                      onClick={this.handleRetryBtn}
+                    >
                       Retry
                     </button>
                   </div>
                 </div>
-              ) : (
+              )}
+
+              {!isLoading && !isFailed && (
                 <>
                   <div className="homepage-container">
                     <div className="left-panel">

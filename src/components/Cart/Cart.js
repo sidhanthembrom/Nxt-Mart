@@ -52,17 +52,15 @@ class Cart extends Component {
     const {tempArr, isPaid} = this.state
 
     // calculating the total price of the cart
-    let totalPrice = 0
-    for (const product of tempArr) {
-      const {count} = product
-      const price = product.price.slice(1)
-      totalPrice += price * count
-    }
+    const totalPrice = tempArr.reduce((sum, product) => {
+      const numericPrice = parseFloat(product.price.slice(1))
+      return sum + numericPrice * product.count
+    }, 0)
 
     return (
       <div className="cart-page-container">
         <Header componentName="cart" />
-        {isPaid ? (
+        {isPaid && (
           <div className="cart-successful-page-container">
             <div className="cart-successful-dialog-box">
               <img
@@ -71,15 +69,20 @@ class Cart extends Component {
               />
               <h2>Payment Successful</h2>
               <p>Thank you for ordering</p>
-              <p>Your paymnent is successfully completed.</p>
+              <p>Your payment is successfully completed.</p>
               <Link to="/">
-                <button className="checkout-btn return-to-homepage-btn">
+                <button
+                  type="button"
+                  className="checkout-btn return-to-homepage-btn"
+                >
                   Return to Homepage
                 </button>
               </Link>
             </div>
           </div>
-        ) : tempArr.length === 0 ? (
+        )}
+
+        {!isPaid && tempArr.length === 0 && (
           <div className="empty-cart-view">
             <div className="cart-icon-with-text">
               <img
@@ -91,7 +94,9 @@ class Cart extends Component {
               <h1>Your cart is empty</h1>
             </div>
           </div>
-        ) : (
+        )}
+
+        {!isPaid && tempArr.length > 0 && (
           <div className="cart-list-box-container">
             <h2 className="title-for-desktop">Items</h2>
             <h3 className="title-for-mobile">Checkout</h3>
@@ -118,6 +123,7 @@ class Cart extends Component {
                     </div>
                     <div className="quantity-modifier-btn-container">
                       <button
+                        type="button"
                         data-testid="decrement-quantity"
                         onClick={() => this.handleCartItemDecrement(product)}
                       >
@@ -125,6 +131,7 @@ class Cart extends Component {
                       </button>
                       <span data-testid="item-quantity">{product.count}</span>
                       <button
+                        type="button"
                         data-testid="increment-quantity"
                         onClick={() => this.handleCartItemIncrement(product)}
                       >
@@ -137,6 +144,7 @@ class Cart extends Component {
               <div className="total-price-with-checkout-btn-container">
                 <span data-testid="total-price">{`Total (${tempArr.length} items) : Rs ${totalPrice}`}</span>
                 <button
+                  type="button"
                   className="checkout-btn"
                   onClick={this.handleCheckoutBtn}
                 >

@@ -4,7 +4,7 @@ import NxtMartContext from '../../context/Context'
 import './header.css'
 
 const Header = props => {
-  const {componentName, history, cartList} = props
+  const {componentName, history} = props
 
   const handleLogout = () => {
     Cookies.remove('jwt_token')
@@ -28,8 +28,9 @@ const Header = props => {
           <div className="header-container">
             <img src="https://i.imgur.com/iZpoPGA.png" alt="website logo" />
             <div className="nav-link-container">
-              <Link to="/">
+              <Link to="/" className="anchor-link">
                 <button
+                  type="button"
                   className={
                     componentName === 'home' ? 'selectedNavText' : 'btn'
                   }
@@ -50,8 +51,9 @@ const Header = props => {
                   />
                 )}
               </Link>
-              <Link to="/cart">
+              <Link to="/cart" className="anchor-link">
                 <button
+                  type="button"
                   className={
                     componentName === 'cart' ? 'selectedNavText' : 'btn'
                   }
@@ -74,16 +76,19 @@ const Header = props => {
                   />
                 )}
               </Link>
-              <div onClick={handleLogout}>
+              <div>
                 <div className="logout-btn-container">
-                  <img
-                    height="16px"
-                    src="https://i.imgur.com/PV0lPDh.png"
-                    alt="logout-btn"
-                  />
-                  <button className="btn">Logout</button>
+                  <button onClick={handleLogout} type="button" className="btn">
+                    <img
+                      height="16px"
+                      src="https://i.imgur.com/PV0lPDh.png"
+                      alt="logout-btn"
+                    />
+                    Logout
+                  </button>
                 </div>
                 <img
+                  onClick={handleLogout}
                   className="logout-icon"
                   height="20px"
                   src="https://i.imgur.com/tAGK2Ps.png"
