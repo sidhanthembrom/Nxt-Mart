@@ -1,0 +1,102 @@
+.card-container {
+  width: 270px;
+  min-width: 270px;
+  border: 1px solid #d8d8d8;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.card-img-container {
+  display: flex;
+  justify-content: center;
+}
+
+.product-img {
+  height: 120px;
+  width: 120px;
+}
+
+.text-container {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.left-side > span {
+  font-size: 13px;
+}
+
+.quantity {
+  color: #808080;
+}
+
+.price {
+  font-weight: bold;
+}
+
+.add-btn {
+  width: 80px;
+  height: 40px;
+  color: green;
+  background: transparent;
+  border: 1px solid green;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.quantity-modifier-btn-container {
+  width: 80px;
+  height: 40px;
+  color: green;
+  border: 1px solid green;
+  border-radius: 5px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.quantity-modifier-btn-container > button {
+  background: transparent;
+  border: 0;
+  color: green;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@media (max-width: 425px) {
+  .card-container {
+    min-width: 160px;
+    width: 160px;
+    height: 190px;
+  }
+
+  .product-img {
+    width: 67px;
+    height: 70px;
+  }
+
+  .add-btn {
+    width: 55px;
+    height: 24px;
+  }
+
+  .quantity-modifier-btn-container {
+    width: auto;
+    height: 24px;
+    gap: 4px;
+  }
+
+  .quantity-modifier-btn-container > span {
+    font-size: 16px;
+  }
+}

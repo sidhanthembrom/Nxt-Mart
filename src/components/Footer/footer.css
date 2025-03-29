@@ -1,0 +1,29 @@
+.footer-container {
+  position: fixed;
+  bottom: 0;
+  background-color: #003f00;
+  width: 100%;
+  color: white;
+}
+
+.text-with-logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brand-icon-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.copyright-text-container {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 425px) {
+  .footer-container {
+    display: none;
+  }
+}

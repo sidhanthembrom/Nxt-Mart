@@ -1,0 +1,17 @@
+.not-found-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 425px) {
+  .not-found-container > div {
+    display: flex;
+    justify-content: center;
+  }
+
+  .not-found-container > div > img {
+    width: 80%;
+  }
+}
