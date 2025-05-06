@@ -43,7 +43,6 @@ class Cart extends Component {
   }
 
   handleCheckoutBtn = () => {
-    // console.log('checkout')
     localStorage.removeItem('cartData')
     this.setState({isPaid: true})
   }

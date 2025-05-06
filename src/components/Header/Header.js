@@ -19,7 +19,6 @@ const Header = props => {
         const saveToLocalStorage = () => {
           /* works only when the home component is active */
           if (componentName === 'home') {
-            // console.log('saving to local storage')
             localStorage.setItem('cartData', JSON.stringify(cartList))
           }
         }

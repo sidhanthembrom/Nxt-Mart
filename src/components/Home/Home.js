@@ -25,9 +25,7 @@ class Home extends Component {
     )
     const response = await data.json()
 
-    // console.log(response.categories)
     if (response.categories.length === 15) {
-      console.log('yes')
       const tempArr = response.categories.map(obj => obj.name)
       this.setState({
         categoryList: tempArr,
@@ -36,7 +34,6 @@ class Home extends Component {
         isFailed: false,
       })
     } else {
-      console.log('no')
       this.setState({isFailed: true})
     }
   }

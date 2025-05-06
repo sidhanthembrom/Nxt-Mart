@@ -8,7 +8,6 @@
 }
 
 .loginform-container {
-  height: 500px;
   width: 500px;
   background-color: white;
   border-radius: 15px;
@@ -85,4 +84,25 @@
 
 .red {
   color: red;
+}
+
+.demo-credentials-container {
+  margin-top: 1rem;
+  background-color: rgb(142, 230, 149);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.demo-credentials-title {
+  margin: 0 0 5px 0;
+}
+
+.img-container-with-text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.img-container-with-text > p {
+  margin: 5px 0;
 }
